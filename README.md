@@ -19,13 +19,13 @@ The goal of this repository is to:
 
 The repository already includes several thematic modules, such as:
 
- - [Algorithms](./Algorithms)
  - [Annotations](./Annotations)
     - Using annotations in Java with simple examples.
  - [Collections](./Collections)
     - Implementation of the main classes and methods in Java Collections Framework including Map hierarchy.
     - [Java Collections Framework diagram](https://github.com/korneevdi/Java-playground/blob/main/Collection/JCF_Structure.md).
     - [Map Hierarchy in Java Collections Framework](https://github.com/korneevdi/Java-playground/blob/main/Collection/Map_Structure.md).
+ - [DataStructures](./DataStructures)
  - [JDBC-airport-management](./JDBC-airport-management)
     - Practicing database connections, queries, and statements without using frameworks like Hibernate.
     - Core of my future portfolio project for airport management
