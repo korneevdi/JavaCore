@@ -1,8 +1,8 @@
 package datastructures.arraylist;
 
-public class MyArrayList {
+public class MyArrayList<T> {
 
-    private Integer[] list;
+    private T[] list;
 
     private static final int INITIAL_CAPACITY = 1;
 
@@ -10,7 +10,7 @@ public class MyArrayList {
 
     // Default constructor
     public MyArrayList() {
-        list = new Integer[INITIAL_CAPACITY];
+        list = createArray(INITIAL_CAPACITY);
     }
 
     // Custom constructor
@@ -18,14 +18,14 @@ public class MyArrayList {
         if (capacity <= 0) {
             throw new IllegalArgumentException("Capacity must be positive. Input: " + capacity);
         } else {
-            list = new Integer[capacity];
+            list = createArray(capacity);
         }
     }
 
     // ######### Public methods #########
 
     // Add new element to the end
-    public void add(Integer element) {
+    public void add(T element) {
         if(element == null) {
             throw new IllegalArgumentException("Element must not be null");
         }
@@ -37,7 +37,7 @@ public class MyArrayList {
     }
 
     // Add new element at the specific position
-    public void add(int index, Integer element) {
+    public void add(int index, T element) {
         if(index < 0) {
             throw new IndexOutOfBoundsException("Index must be non-negative");
         }
@@ -58,7 +58,7 @@ public class MyArrayList {
     }
 
     // Remove specific element
-    public void remove(Integer element) {
+    public void remove(T element) {
         int firstIndex = indexOf(element);
         if(firstIndex != -1) {
             deleteElement(firstIndex);
@@ -80,7 +80,7 @@ public class MyArrayList {
 
     // Clear list
     public void clear() {
-        list = new Integer[INITIAL_CAPACITY];
+        list = createArray(INITIAL_CAPACITY);
         size = 0;
     }
 
@@ -90,7 +90,7 @@ public class MyArrayList {
     }
 
     // Search an element in the list
-    public int indexOf(Integer element) {
+    public int indexOf(T element) {
         if(element == null) {
             return -1;
         }
@@ -103,7 +103,7 @@ public class MyArrayList {
     }
 
     // Get an element from the list
-    public Integer get(int index) {
+    public T get(int index) {
         if(index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Illegal index");
         }
@@ -114,7 +114,7 @@ public class MyArrayList {
 
     // Increase the array size
     private void increaseList() {
-        Integer[] newList = new Integer[size + size/2 + 1];
+        T[] newList = createArray(size + size/2 + 1);
         System.arraycopy(list, 0, newList, 0, size);
         list = newList;
     }
@@ -126,5 +126,11 @@ public class MyArrayList {
         }
         list[size - 1] = null;
         size--;
+    }
+
+    // Create generic array
+    @SuppressWarnings("unchecked")
+    private T[] createArray(int capacity) {
+        return (T[]) new Object[capacity];
     }
 }
