@@ -25,8 +25,8 @@ public class SingleDimensionalArray {
     }
 
     public void traverse() {
-        for(int i = 0; i < array.length; i++) {
-            System.out.print(array[i] + " ");
+        for (int i : array) {
+            System.out.print(i + " ");
         }
         System.out.println();
     }
@@ -46,7 +46,11 @@ public class SingleDimensionalArray {
             System.out.println("Invalid index: " + index);
             return;
         }
-        array[index] = Integer.MIN_VALUE;
-        System.out.println("Element at position " + index + " successfully deleted");
+        if(array[index] == Integer.MIN_VALUE) {
+            System.out.println("Nothing to delete");
+        } else {
+            array[index] = Integer.MIN_VALUE;
+            System.out.println("Element at position " + index + " successfully deleted");
+        }
     }
 }
