@@ -59,6 +59,9 @@ public class MyArrayList<T> {
 
     // Remove specific element
     public void remove(T element) {
+        if(element == null) {
+            return;
+        }
         int firstIndex = indexOf(element);
         if(firstIndex != -1) {
             deleteElement(firstIndex);
